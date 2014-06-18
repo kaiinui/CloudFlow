@@ -1,11 +1,16 @@
 [WIP] CloudFlow
 =========
 
-I will write. Not implemented yet.
+I will write it. Not implemented yet.
 
 SQS Powered multi-instance coding made easy, with adequete scalability.
 
-#Fancy syntax
+Fancy syntax
+=========
+
+Looks like ordinary? It works on multiple instances!
+
+Just add cloudflow instances to scale. Without touching current instances.
 
 ```ruby
 cloudflow :myflow do
