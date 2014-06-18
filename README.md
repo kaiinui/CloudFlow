@@ -8,7 +8,7 @@ SQS Powered multi-instance coding made easy, with adequete scalability.
 Fancy syntax
 =========
 
-Looks like ordinary? It works on multiple instances!
+Looks like an ordinary code? It works on multiple instances!
 
 Just add cloudflow instances to scale. Without touching current instances.
 
