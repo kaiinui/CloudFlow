@@ -17,13 +17,13 @@ cloudflow :myflow do
   func :first do |arg|
     first_result = do_something
     
-    myflow.second result: first_result
+    myflow.second first_result: first_result
   end
 
   func :second do |arg|
     second_result = do_something_with_first_result(arg.first_result)
 
-    myflow.third result: second_result
+    myflow.third second_result: second_result
   end
   
   func :third do |arg|
