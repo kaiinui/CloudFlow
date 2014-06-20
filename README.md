@@ -3,33 +3,38 @@
 
 I will write it. Not implemented yet.
 
-SQS Powered multi-instance coding made easy, with adequete scalability.
+SQS Powered multi-instance coding made easy.
 
 Fancy syntax
 =========
 
 Looks like an ordinary code? It works on multiple instances!
 
-Just add cloudflow instances to scale. Without touching current instances.
-
 ```ruby
 cloudflow :myflow do
   func :first do |arg|
     first_result = do_something
     
-    myflow.second first_result: first_result
+    myflow.second first_result
   end
 
-  func :second do |arg|
-    second_result = do_something_with_first_result(arg.first_result)
+  func :second do |first_result|
+    second_result = do_something_with_first_result(first_result)
 
-    myflow.third second_result: second_result
+    myflow.third second_result
   end
   
-  func :third do |arg|
-    final = do_domething_with_second_result(arg.second_result)
+  func :third do |second_result|
+    final_result = do_domething_with_second_result(second_result)
     
-    save_result_to_somewhere(final)
+    save_result_to_somewhere(final_result)
   end
 end
 ```
+
+Scalability
+=========
+
+Just copy an instance to scale. Each instances has same environment.
+
+Scaling automatically is also easy.
