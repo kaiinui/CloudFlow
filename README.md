@@ -23,7 +23,7 @@ end
 
 flow.first
 
-flow.start
+flow.start # start polling the queue.
 
 # => first 
 # => second
@@ -51,10 +51,30 @@ CloudFlow does it simply.
 Install
 =========
 
-`gem install 'cloud_flow'`
+`gem 'cloud_flow'`
 
 Please note `cloud_flow` is currently WIP.
 It's interface can be changed without any anounce.
+
+Usage
+=========
+
+1. `gem 'cloud_flow'` then `bundle`
+
+2. Set AWS key as following.
+
+```ruby
+AWS.config(
+  access_key_id: "ACCESS_KEY"
+  secret_access_key: "SECRET_KEY"
+  # sqs_endpoint: sqs.ap-northeast-1.amazonaws.com # if needed.
+)
+```
+
+3. create SQS queue on AWS Console (https://console.aws.amazon.com/sqs/home). The name have to be like  `cloudflow_yournamespace`. Then you can do `CloudFlow.new("yournamespace")`. (I will omit this step by automatically creating a queue if does not exist.)
+
+4. `require 'cloud_flow'` and enjoy!
+
 
 Document
 =========
@@ -68,10 +88,10 @@ Just copy an instance to scale. Each instances has same environment.
 
 TODO
 =========
-1. Write more test. (Especially about handling SQS) Now I wrote only about parsing a message. 
+1. Write more test. (Especially about handling SQS) Currently I wrote about only parsing a message. 
 2. Write better doc.
 
 Want to do
 ========
 1. Provide a way to handle ActiveRecord objects easier. Because now you can pass args only String or Number.
-2. Provide a way to pass callback.
+2. Provide a way to pass a callback block.
