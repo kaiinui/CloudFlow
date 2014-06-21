@@ -31,6 +31,23 @@ flow.start
 # => last!
 ```
 
+Motivation
+=========
+
+Writing a multi-instance code is really painful.
+
+RPC? API? They are really painful. I just want to write a code, not to define protocol and call API and....
+
+And there are more bad things. If you use RPC or API, you have to know instances. Then you have to know their IP. Then you need to write a config.
+
+Queue make it simple. 
+You just call methods via queue.
+Every instance just polls the queue.
+Every instance does NOT know each other, only knows the queue.
+Really simple.
+
+CloudFlow does it simply.
+
 Install
 =========
 
