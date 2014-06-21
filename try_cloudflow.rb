@@ -3,10 +3,11 @@ require_relative 'cloud_flow'
 flow = CloudFlow.new("example")
 flow.on :first do
   puts "first"
-  flow.second
+  flow.second("btw I'm feeling lucky.")
 end
-flow.on :second do
+flow.on :second do |args|
   puts "second"
+  puts "received: #{args}"
   flow.third
 end
 flow.on :third do
@@ -20,4 +21,4 @@ Thread.new do
   end
 end
 
-flow.poll
+flow.start

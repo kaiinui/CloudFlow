@@ -10,6 +10,7 @@ class CloudFlow
   end
 
   # regist func correspond to given func name.
+  # please avoid 'on', 'poll' since they are used already by CloudFlow.
   # flow.on(:somefunc, &blk) generates flow#somefunc which is used to call the work.
   # @param name [String] the work's name.
   # @param block [Block] the work.
@@ -19,7 +20,7 @@ class CloudFlow
   end
 
   # starts its work.
-  def poll
+  def start
     @queue.poll do |msg|
       perform_message(msg)
     end
