@@ -1,4 +1,5 @@
-require_relative 'cloud_flow'
+require_relative 'config/aws'
+require 'cloud_flow'
 
 flow = CloudFlow.new("example")
 flow.on :first do
@@ -7,7 +8,7 @@ flow.on :first do
 end
 flow.on :second do |args|
   puts "second"
-  puts "received: #{args}"
+  puts "  received: #{args}"
   flow.third
 end
 flow.on :third do

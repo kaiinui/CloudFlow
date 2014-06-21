@@ -1,4 +1,3 @@
-require_relative 'config/aws'
 require_relative 'flow_method'
 
 class CloudFlow
