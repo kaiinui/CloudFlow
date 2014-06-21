@@ -4,13 +4,15 @@ require 'cloud_flow'
 flow = CloudFlow.new("hoga")
 flow.on :first do
   puts "first"
-  flow.second("btw I'm feeling lucky.")
+  flow.second("btw I'm feeling lucky.", "Really!")
 end
-flow.on :second do |args|
+
+flow.on :second do |feeling, how_much|
   puts "second"
-  puts "  received: #{args}"
+  puts "  received: #{feeling} #{how_much}"
   flow.third
 end
+
 flow.on :third do
   puts "last!"
 end
