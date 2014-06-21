@@ -59,13 +59,13 @@ It's interface can be changed without any anounce.
 Usage
 =========
 
-- Set AWS key as following. Put it on `config/aws.rb` and `require_relative 'config/aws'` is recommended way.
+- Set AWS key as following. Putting it on `config/aws.rb` and `require_relative 'config/aws'` is recommended way.
 
 ```ruby
 AWS.config(
   access_key_id: "ACCESS_KEY"
   secret_access_key: "SECRET_KEY"
-  # sqs_endpoint: sqs.ap-northeast-1.amazonaws.com # if needed.
+  # sqs_endpoint: "sqs.ap-northeast-1.amazonaws.com" # if needed.
 )
 ```
 
