@@ -31,6 +31,14 @@ flow.start
 # => last!
 ```
 
+Install
+=========
+
+`gem install 'cloud_flow'`
+
+Please note `cloud_flow` is currently WIP.
+It's interface can be changed without any anounce.
+
 Scalability
 =========
 
@@ -39,8 +47,7 @@ Just copy an instance to scale. Each instances has same environment.
 TODO
 =========
 1. Write more test. (Especially about handling SQS) Now I wrote only about parsing a message. 
-2. Gemify
-3. Write doc
+2. Write better doc.
 
 Want to do
 ========
