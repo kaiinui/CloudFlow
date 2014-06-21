@@ -23,7 +23,7 @@ end
 
 flow.first
 
-flow.poll
+flow.start
 
 # => first 
 # => second
