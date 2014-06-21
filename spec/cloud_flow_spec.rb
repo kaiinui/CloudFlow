@@ -4,6 +4,18 @@ describe CloudFlow do
   let(:flow) { CloudFlow.new("example") }
 
   context 'helpers' do
+    context '#build_method_call' do
+      context 'when passes foobar ["somestr"]' do
+        it {expect(flow.send(:build_method_call, "foobar", ["somestr"])).to eq "foobar(somestr)"}
+      end
+      context 'when passes foobar [1,2,3]' do
+        it {expect(flow.send(:build_method_call, "foobar", [1,2,3])).to eq "foobar(1,2,3)"}
+      end
+      context 'when passes foobar []' do
+        it {expect(flow.send(:build_method_call, "foobar", [])).to eq "foobar()"}
+      end
+    end
+
     context '#parse_method_call' do
       context 'when passes foobar(somestr)' do
         let(:call) {flow.send(:parse_method_call, "foobar(somestr)")}
