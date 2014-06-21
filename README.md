@@ -3,11 +3,6 @@
 
 SQS Powered multi-instance coding made easy.
 
-Fancy syntax
-=========
-
-Looks like an ordinary code? It works on multiple instances!
-
 ```ruby
 flow = CloudFlow.new("example") # then it uses SQS queue: 'cloudflow_example'
 
@@ -41,4 +36,8 @@ Scalability
 
 Just copy an instance to scale. Each instances has same environment.
 
-Scaling automatically is also easy.
+TODO
+=========
+1. Write more test. (Especially about handling SQS) Now I wrote only about parsing a message. 
+2. Gemify
+3. Write doc
