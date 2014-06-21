@@ -1,7 +1,7 @@
 require_relative 'config/aws'
 require 'cloud_flow'
 
-flow = CloudFlow.new("example")
+flow = CloudFlow.new("hoga")
 flow.on :first do
   puts "first"
   flow.second("btw I'm feeling lucky.")
