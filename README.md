@@ -41,3 +41,8 @@ TODO
 1. Write more test. (Especially about handling SQS) Now I wrote only about parsing a message. 
 2. Gemify
 3. Write doc
+
+Want to do
+========
+1. Provide a way to handle ActiveRecord objects easier. Because now you can pass args only String or Number.
+2. Provide a way to pass callback.
