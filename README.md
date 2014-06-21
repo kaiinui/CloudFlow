@@ -39,6 +39,11 @@ Install
 Please note `cloud_flow` is currently WIP.
 It's interface can be changed without any anounce.
 
+Document
+=========
+
+http://rubydoc.info/gems/cloud_flow
+
 Scalability
 =========
 
