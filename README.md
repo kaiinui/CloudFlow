@@ -12,12 +12,12 @@ flow = CloudFlow.new("example") # then it uses SQS queue: 'cloudflow_example'
 
 flow.on :first do
   puts "first"
-  flow.second("By the way, I'm feeling lucky.")
+  flow.second("By the way, I'm feeling lucky.", "Really.")
 end
 
-flow.on :second do |args|
+flow.on :second do |feeling, how_much|
   puts "second"
-  puts "  arg received: #{args}"
+  puts "  arg received: #{feeling} #{how_much}"
   flow.third
 end
 
@@ -31,7 +31,7 @@ flow.start # start polling the queue.
 
 # => first 
 # => second
-# =>   arg received: By the way, I'm feeling lucky.
+# =>   arg received: By the way, I'm feeling lucky. Really!
 # => last!
 ```
 
