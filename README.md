@@ -59,9 +59,9 @@ It's interface can be changed without any anounce.
 Usage
 =========
 
-1. `gem 'cloud_flow'` then `bundle`
+- `gem 'cloud_flow'` then `bundle`
 
-2. Set AWS key as following.
+- Set AWS key as following.
 
 ```ruby
 AWS.config(
@@ -71,9 +71,9 @@ AWS.config(
 )
 ```
 
-3. create SQS queue on AWS Console (https://console.aws.amazon.com/sqs/home). The name have to be like  `cloudflow_yournamespace`. Then you can do `CloudFlow.new("yournamespace")`. (I will omit this step by automatically creating a queue if does not exist.)
+- create SQS queue on AWS Console (https://console.aws.amazon.com/sqs/home). The name should be like  `cloudflow_yournamespace`. Then you can do `CloudFlow.new("yournamespace")`. (I will omit this step by automatically creating a queue if it does not exist.)
 
-4. `require 'cloud_flow'` and enjoy!
+- `require 'cloud_flow'` and enjoy!
 
 
 Document
