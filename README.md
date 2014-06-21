@@ -1,3 +1,5 @@
+日本語(https://github.com/kaiinui/CloudFlow/blob/master/README.ja.md)
+
 [![Gem Version](https://badge.fury.io/rb/cloud_flow.svg)](http://badge.fury.io/rb/cloud_flow)
 
 [WIP] CloudFlow
