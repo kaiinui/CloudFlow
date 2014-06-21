@@ -1,8 +1,6 @@
 [WIP] CloudFlow
 =========
 
-I will write it. Not implemented yet.
-
 SQS Powered multi-instance coding made easy.
 
 Fancy syntax
@@ -11,25 +9,31 @@ Fancy syntax
 Looks like an ordinary code? It works on multiple instances!
 
 ```ruby
-cloudflow :myflow do
-  func :first do |arg|
-    first_result = do_something
-    
-    myflow.second first_result
-  end
+flow = CloudFlow.new("example") # then it uses SQS queue: 'cloudflow_example'
 
-  func :second do |first_result|
-    second_result = do_something_with_first_result(first_result)
-
-    myflow.third second_result
-  end
-  
-  func :third do |second_result|
-    final_result = do_domething_with_second_result(second_result)
-    
-    save_result_to_somewhere(final_result)
-  end
+flow.on :first do
+  puts "first"
+  flow.second("By the way, I'm feeling lucky.")
 end
+
+flow.on :second do |args|
+  puts "second"
+  puts "  arg received: #{args}"
+  flow.third
+end
+
+flow.on :third do
+  puts "last!"
+end
+
+flow.first
+
+flow.poll
+
+# => first 
+# => second
+# =>   arg received: By the way, I'm feeling lucky.
+# => last!
 ```
 
 Scalability
