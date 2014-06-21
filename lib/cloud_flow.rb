@@ -5,11 +5,11 @@ class CloudFlow
   def initialize(name)
     @namespace = name
     sqs = AWS::SQS.new
-    @queue = sqs.queues.named("cloudflow_#{@namespace}")
+    @queue = create_or_find_queue(sqs, "cloudflow_#{@namespace}")
   end
 
-  # regist func correspond to given func name.
-  # please avoid 'on', 'poll' since they are used already by CloudFlow.
+  # Create function correspond to given name.
+  # Please avoid 'on', 'poll' since they are used already by CloudFlow.
   # flow.on(:somefunc, &blk) generates flow#somefunc which is used to call the work.
   # @param name [String] the work's name.
   # @param block [Block] the work.
@@ -18,7 +18,7 @@ class CloudFlow
     define_receiving_method(name, &block)
   end
 
-  # starts its work.
+  # Starts its work.
   def start
     @queue.poll do |msg|
       perform_message(msg)
@@ -26,6 +26,16 @@ class CloudFlow
   end
 
   private
+
+  # creates of finds SQS queue by given name
+  # @param sqs [AWS::SQS]
+  # @param name [String]
+  # @return [AWS::SQS::Queue]
+  def create_or_find_queue(sqs, name)
+    sqs.queues.named(name)
+  rescue AWS::SQS::Errors::NonExistentQueue
+    sqs.queues.create(name)
+  end
 
   # defines method which does send message to SQS
   def define_sending_method(name)
