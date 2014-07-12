@@ -35,14 +35,16 @@ flow.start # start polling the queue.
 # => last!
 ```
 
+**This code does work on multi instances, though it is like an ordinary code.**
+
 Motivation
 =========
 
 Writing a multi-instance code is really painful.
 
-RPC? API? They are really painful. I just want to write a code, not to define protocol and call API and....
+RPC? API? **These are really painful.** I just want to write a code, I don't want to define protocol and call API and....
 
-And there are more bad things. If you use RPC or API, you have to know instances. Then you have to know their IP. Then you need to write a config.
+And there are more bad things. If you use RPC or API, you have to know all instances. Then you have to know their IP. Then you need to write a config. You have to manage the instances.
 
 Queue make it simple. 
 You just call methods via queue.
@@ -57,13 +59,13 @@ Install
 
 `gem 'cloud_flow'`
 
-Please note `cloud_flow` is currently WIP.
+Please note `cloud_flow` is currently WIP and highly experimental.
 It's interface can be changed without any anounce.
 
 Usage
 =========
 
-- Set AWS key as following. Putting it on `config/aws.rb` and `require_relative 'config/aws'` is recommended way.
+- Set AWS key as following. Putting it on `config/aws.rb` and `require_relative 'config/aws'` is recommended way. (or set environment variable.)
 
 ```ruby
 AWS.config(
@@ -84,7 +86,14 @@ http://rubydoc.info/gems/cloud_flow
 Scalability
 =========
 
-Just copy an instance to scale. Each instances has same environment.
+Just copy an instance to scale.
+
+Protocol
+====
+
+###Protocol v0 2014.07.12
+
+When you call a cloudflow method, a message like `method_name(arg1, arg2)` will be sent to SQS. Then an instance polls the message, parse the message and call the method `method_name` with `arg1`, `arg2`.
 
 TODO
 =========
