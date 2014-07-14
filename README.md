@@ -54,6 +54,8 @@ Really simple.
 
 CloudFlow does it simply.
 
+![](https://dl.dropboxusercontent.com/u/7817937/_github/cloudflow/cloudflow.jpg)
+
 Install
 =========
 
@@ -97,8 +99,9 @@ When you call a cloudflow method, a message like `method_name(arg1, arg2)` will 
 
 TODO
 =========
-1. Write more test. (Especially about handling SQS) Currently I wrote about only parsing a message. 
-2. Write better doc.
+- [ ] Write more description.
+- [ ] Write more test. (Especially about handling SQS) Currently I wrote about only parsing a message. 
+- [ ] Write better doc.
 
 Want to do
 ========
